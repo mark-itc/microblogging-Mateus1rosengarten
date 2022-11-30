@@ -1,34 +1,75 @@
-import { useState,useEffect } from "react"
+import { useState,useEffect} from "react"
 import TweetList from "./tweetList"
 import MaximumCaractheres from "./MaximumCaractheres";
+
 
 
 function TweetAdd () {
     const [item ,setItem] = useState ([]);
     const [post,setPost] = useState({nameObj:' ',dateObj:' ',textpostObj:' '});
 
+
     const handleAddPost = () => {
+
+       const savedLogin = localStorage.getItem('user_Saved')
+       
         
-        const newItem = { postusername : "Mateus" , postdate : makingDate() ,posttext: post.textpostObj}
+        const newItem = { userName : savedLogin, date : makingDate() ,content: post.textpostObj}
         item.unshift(newItem)
        
         setItem([...item])
-        
+
+        const sendData = async () => {
+            const settings = {
+            method: 'POST',
+            headers: {"Content-type" : "application/json"},
+            body: JSON.stringify(newItem) 
+           
+        } 
+        try {
+         const fetchResp = await fetch('https://micro-blogging-dot-full-stack-course-services.ew.r.appspot.com/tweet',settings)  
+         const data = await fetchResp.json();
+         console.log('data',data)
+         return data; }
+
+         catch(err){
+            alert('An Error happened:the tweet was not added')
+            console.log('An Error happened ' ,err)
+
+         }
+        }   
+         sendData()
+         
     }
 
-    useEffect(() => {
-        const savedData = localStorage.getItem('MY_TWEETS')
-        console.log('saved',savedData)
-        localStorage.setItem('OLD_TWEETS',JSON.stringify(savedData))
-        savedData != null && setItem(JSON.parse([savedData]))
+    const getData = async () => {
+        try{
+        const fetchResp = await fetch('https://micro-blogging-dot-full-stack-course-services.ew.r.appspot.com/tweet')
+        const data = await fetchResp.json();
+        console.log(data)
+        setItem(data.tweets)
+        return data.tweets; }
 
-    },[])
+        catch(err){
+            alert('An Error happened:the tweet was not added')
+            console.log('An Error happened ' ,err)
 
-    useEffect(() => {
-        localStorage.setItem('MY_TWEETS',JSON.stringify(item))
-        console.log('renderizou',item)
+        }
+        
+     }
 
-    },[item])
+     useEffect(() => {
+        getData()
+
+     },[])
+
+   
+
+
+    
+
+   
+
  
     const handleTextArea = (e) => {
         setPost({textpostObj : e.target.value});
@@ -41,21 +82,25 @@ function TweetAdd () {
     }
 
 
+
+
     return( <> 
         <div className="postBox">
             <textarea className="textareastyle" type="text" onChange={handleTextArea} placeholder='What you have in mind...' >
             </textarea>
-            <button disabled={post.textpostObj.length > 140} onClick={handleAddPost} className="buttonstyle">Tweet</button>
-            {post.textpostObj.length > 140 && (<MaximumCaractheres />)}
+             
+            
+          <button  disabled={post.textpostObj.length > 140 } onClick={handleAddPost} className="buttontweet">Tweet</button>
+           {post.textpostObj.length > 140 && ( <MaximumCaractheres /> )}
 
         </div>
         <div className="listContainer">
           
         {item.map((i,index) => ( <TweetList 
              key = {index}
-             name={i.postusername} 
-             date={i.postdate} 
-             textpost={i.posttext} />
+             name={i.userName} 
+             date={i.date} 
+             textpost={i.content} />
         ))}
             
 

@@ -1,5 +1,3 @@
-import './MaximumCaractheres.css'
-
 function MaximumCaractheres (){
     return(
         <div className="alertdiv">

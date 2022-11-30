@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .App {
+
   text-align: center;
 }
 
@@ -68,16 +71,21 @@ border-radius: 6px;
   color: #CCCCCC;
 }
 
-.buttonstyle{
+.buttontweet {
   position: absolute;
-width: 68px;
-height: 34px;
-left: 525px;
-top: 131px;
-color: white;
-background-color: #007BFF;
-border: 1px solid  #15202B;
-border-radius: 4px;
+  width: 68px;
+  height: 34px;
+  left: 525px;
+  top: 131px;
+  color: white;
+  background-color: #007BFF;
+  border: 1px solid #15202B;
+  border-radius: 4px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
 }
 
 .listContainer{
