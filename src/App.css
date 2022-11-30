@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/********************************* LOGIN PAGE ********************************/
+
+
+.h3-profilepage {
+  position: absolute;
+  width: 103px;
+  height: 42px;
+  left: 369px;
+  top: 90px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 42px;
+
+  color: #FFFFFF;
+}
+
+.label-login {
+
+  position: absolute;
+  width: 90px;
+  height: 21px;
+  left: 368px;
+  top: 195px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: rgba(255, 255, 255, 0.8);
+
+}
+
+.loginInput {
+  box-sizing: border-box;
+  position: absolute;
+  width: 600px;
+  height: 61px;
+  left: 367px;
+  top: 220px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+  background-color: #15202B;
+  color: #CCCCCC;
+  padding-left: 16px;
+
+
+}
+
+input[type=text] {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+::placeholder {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 5px 0 0 0px;
+  color: #CCCCCC;
+}
+
+:focus {
+  outline: none;
+}
+
+.buttonsave {
+  position: absolute;
+  width: 68px;
+  height: 34px;
+  left: 889px;
+  top: 295px;
+  background: #007BFF;
+  border: 1px solid #15202B;
+  border-radius: 4px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+/****************************** ADD TWEET **********************************/
+
+
+
+.postBox {
+
+  position: absolute;
+  width: 600px;
+  height: 180px;
+  left: 367px;
+  top: 105px;
+  border: 2px solid #CCCCCC;
+  border-radius: 6px;
+}
+
+
+
+.textareastyle {
+  position: absolute;
+  left: 10px;
+  margin-top: 10px;
+  width: 400px;
+  resize: none;
+  border: none;
+  background-color: #15202B;
+  color: #CCCCCC;
+
+}
+
+
+
+
+.buttontweet {
+  position: absolute;
+  width: 68px;
+  height: 34px;
+  left: 525px;
+  top: 131px;
+  color: white;
+  background-color: #007BFF;
+  border: 1px solid #15202B;
+  border-radius: 4px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+}
+
+
+.listContainer {
+  position: absolute;
+  width: 600px;
+  height: 1200px;
+  left: 367px;
+  top: 305px;
+}
