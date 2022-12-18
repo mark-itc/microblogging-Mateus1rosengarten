@@ -1,11 +1,21 @@
 import './App.css';
 import TweetAdd from './pages/tweetAdd';
 import Login from './pages/login';
+import Auth from './pages/authentication';
 import Navbar from './components/Navbar';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { useContext } from 'react';
+import { TweetsAddContext } from './context/contextAdd';
+
+
+
 
 
 function App () {
+  const {userLog,setUserLog} = useContext(TweetsAddContext)
+
+
+
   return (
     <> 
      <Navbar />
@@ -13,17 +23,14 @@ function App () {
      
       
     
-    <Route path='/' element= { <div className="App">
-      <TweetAdd />
+    <Route path='/home' element= { <div className="App"> 
+      <TweetAdd /> 
   
     </div>} />
-      <Route path='/login' element={<Login/> } />
+      <Route path='/profile' element={<Login/> } />
       
      
-    {/* <div className="App">
-      <TweetAdd />
-  
-    </div> */}
+    <Route path='/' element= {<Auth/>} />
     
     </Routes>
     </>

@@ -1,27 +1,26 @@
-import { useContext } from 'react'
-import { TweetsAddContext } from "../context/contextAdd"
 import './TweetList.css'
 
 
 
 
-function TweetList() {
+function TweetList({nameFire,contentFire,dateFire}) {
+        
 
 
 
 
-        const { item } = useContext(TweetsAddContext)
+        
 
         return (
                 <>
 
-                        {item.map((i) => (
+                       
                                 <div className="postContainer">
-                                        <span className="namestyle">{i.userName}</span>
-                                        <span className="datestyle">{i.date}</span>
-                                        <p className="textpoststyle">{i.content}</p>
+                                        <span className="namestyle">{nameFire}</span>
+                                        <p className="datestyle">{dateFire}</p>
+                                        <p className="textpoststyle">{contentFire}</p>
                                 </div>
-                        ))}
+                     
 
                 </>
         )
